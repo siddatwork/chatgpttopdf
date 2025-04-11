@@ -1,0 +1,382 @@
+/* Basic Reset & Font */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 16px; /* Base font size */
+}
+
+/* Light Theme (Default) */
+body {
+    background-color: #f4f7f9; /* Lighter, softer background */
+    color: #333;
+}
+
+.container {
+    max-width: 1400px; /* Wider container for side-by-side */
+    margin: 30px auto;
+    padding: 0 30px; /* Padding on sides */
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    gap: 15px; /* Add gap for spacing between logo, title, controls */
+}
+
+.logo {
+    max-height: 100px; /* Control logo size - increased */
+    width: auto;
+    display: block; /* Prevents extra space below image */
+}
+
+.title-area {
+    flex-grow: 1; /* Allow title area to take available space */
+    text-align: left; /* Align text to the left */
+}
+
+h1 {
+    margin: 0;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 1.8rem;
+    transition: color 0.3s ease;
+    border-bottom-color: #34495e;
+}
+
+.sub-heading {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #5a6a7b;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.controls {
+    display: flex;
+    gap: 15px; /* Space between buttons */
+}
+
+button {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+    display: inline-flex; /* Align icon and text if needed */
+    align-items: center;
+    justify-content: center;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+#generate-pdf {
+    background-color: #3498db; /* Brighter blue */
+    color: white;
+}
+
+#generate-pdf:hover {
+    background-color: #2980b9;
+    box-shadow: 0 3px 6px rgba(52, 152, 219, 0.3);
+}
+
+#toggle-theme {
+    background-color: #ecf0f1; /* Light gray */
+    color: #34495e;
+    padding: 8px; /* Make it more square for the icon */
+    width: 40px;
+    height: 40px;
+    border: 1px solid #bdc3c7;
+}
+
+#toggle-theme:hover {
+    background-color: #dfe4e6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Side-by-side layout */
+.editor-preview-wrapper {
+    display: flex;
+    gap: 30px; /* Space between editor and preview */
+    min-height: calc(100vh - 150px); /* Adjust based on header/footer height */
+}
+
+textarea, .preview {
+    flex: 1; /* Each takes half the space */
+    height: auto; /* Override fixed height */
+    min-height: 500px; /* Minimum height */
+    padding: 20px;
+    border: 1px solid #dce1e6;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    background-color: #ffffff;
+}
+
+textarea {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    resize: none; /* Disable resizing if using flex height */
+    line-height: 1.5;
+}
+
+.preview {
+    background-color: #ffffff; /* Keep preview distinct */
+    overflow-y: auto; /* Allow scrolling */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* Markdown Content Styling (Slight adjustments) */
+.markdown-body {
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+    margin-top: 1.2em;
+    margin-bottom: 0.6em;
+    font-weight: 600;
+    color: #2c3e50;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.3em;
+}
+.markdown-body h1 { font-size: 1.8em; }
+.markdown-body h2 { font-size: 1.5em; }
+.markdown-body h3 { font-size: 1.25em; }
+
+.markdown-body p {
+    margin-bottom: 1em;
+}
+.markdown-body code {
+    background-color: #eef1f3;
+    padding: .2em .4em;
+    margin: 0 2px;
+    font-size: 88%;
+    border-radius: 4px;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+.markdown-body pre {
+    background-color: #eef1f3;
+    padding: 15px;
+    overflow: auto;
+    line-height: 1.45;
+    border-radius: 5px;
+    margin: 1em 0;
+}
+.markdown-body pre code {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    border-radius: 0;
+}
+.markdown-body blockquote {
+    margin: 1em 0 1em 0;
+    padding: 0 1em;
+    color: #6a737d;
+    border-left: .25em solid #dfe2e5;
+}
+.markdown-body ul, .markdown-body ol {
+    padding-left: 2em;
+    margin-bottom: 1em;
+}
+
+/* Table Styles */
+.markdown-body table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1em;
+    border: 1px solid #ccc; /* Slightly darker border */
+}
+.markdown-body th, .markdown-body td {
+    border: 1px solid #ccc;
+    padding: 10px 14px;
+    line-height: 1.4;
+    text-align: left;
+}
+.markdown-body th {
+    background-color: #f0f3f5;
+    font-weight: 600;
+}
+
+/* --- Theme Icon CSS (Sun/Moon) --- */
+.theme-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: relative;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Sun Icon (Default - Light Mode) */
+.theme-icon {
+    background-color: #f39c12; /* Sun color */
+    box-shadow: 0 0 5px rgba(243, 156, 18, 0.7);
+}
+
+/* Moon Icon (Dark Mode) */
+body.dark-mode .theme-icon {
+    background-color: #bdc3c7; /* Moon color */
+    box-shadow: inset -3px 2px 0px 1px #8e959a; /* Crescent shape */
+    transform: rotate(-30deg);
+}
+
+
+/* --- Dark Theme --- */
+body.dark-mode {
+    background-color: #2c3e50; /* Dark blue-gray background */
+    color: #ecf0f1;
+}
+
+body.dark-mode .header {
+    border-bottom-color: #34495e;
+}
+
+body.dark-mode h1 {
+    color: #ecf0f1;
+}
+
+body.dark-mode button#generate-pdf {
+    background-color: #3498db;
+    color: white;
+}
+
+body.dark-mode button#generate-pdf:hover {
+    background-color: #5dade2;
+}
+
+body.dark-mode button#toggle-theme {
+    background-color: #34495e; /* Darker gray */
+    color: #ecf0f1;
+    border-color: #4a6174;
+}
+
+body.dark-mode button#toggle-theme:hover {
+    background-color: #4a6174;
+}
+
+body.dark-mode textarea,
+body.dark-mode .preview {
+    background-color: #34495e; /* Match toggle button */
+    color: #ecf0f1;
+    border-color: #4a6174;
+}
+
+/* Dark Mode Markdown Content Styling */
+body.dark-mode .markdown-body {
+    color: #ecf0f1;
+}
+body.dark-mode .markdown-body h1, body.dark-mode .markdown-body h2, body.dark-mode .markdown-body h3 {
+    color: #ecf0f1;
+    border-bottom-color: #4a6174;
+}
+body.dark-mode .markdown-body code {
+    background-color: #2c3e50; /* Slightly darker code background */
+}
+body.dark-mode .markdown-body pre {
+    background-color: #2c3e50;
+}
+body.dark-mode .markdown-body blockquote {
+    color: #bdc3c7; /* Lighter blockquote text */
+    border-left-color: #4a6174;
+}
+/* Dark Mode Table Styles */
+body.dark-mode .markdown-body table {
+    border: 1px solid #4a6174;
+}
+body.dark-mode .markdown-body th,
+body.dark-mode .markdown-body td {
+    border: 1px solid #4a6174;
+}
+body.dark-mode .markdown-body th {
+    background-color: #4a6174; /* Darker header background */
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    border-top: 1px solid #e0e0e0;
+    transition: color 0.3s ease, border-top-color 0.3s ease;
+}
+
+footer a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: #2980b9;
+}
+
+/* Dark Mode Footer */
+body.dark-mode footer {
+    color: #95a5a6;
+    border-top-color: #34495e;
+}
+
+body.dark-mode footer a {
+    color: #5dade2;
+}
+
+body.dark-mode footer a:hover {
+    color: #8ecae6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) { /* Stack below 900px */
+    .editor-preview-wrapper {
+        flex-direction: column;
+    }
+    textarea, .preview {
+        min-height: 300px; /* Adjust height for stacked view */
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0 15px;
+        margin: 15px auto;
+    }
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+    }
+    h1 {
+        font-size: 1.6rem;
+    }
+    .controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+     #toggle-theme {
+        /* Ensure icon button doesn't take too much space */
+     }
+     #generate-pdf {
+        flex-grow: 1; /* Allow generate button to grow */
+        margin-right: 10px;
+     }
+    textarea, .preview {
+        min-height: 250px;
+    }
+} 

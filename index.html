@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Flawlessly convert ChatGPT Markdown to PDF. Preserves code syntax, math equations & tables. Highly customizable. Easy download for perfect docs.">
+    <title>ChatGPT Markdown to PDF</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img id="logo-img" src="day.png" alt="ChatGPT Markdown to PDF Converter Logo" class="logo">
+            <div class="title-area">
+                <h1>Markdown to PDF</h1>
+                <p class="sub-heading">the fastest Markdown to PDF app</p>
+            </div>
+            <div class="controls">
+                <button id="generate-pdf">Download PDF</button>
+                <button id="toggle-theme" aria-label="Toggle theme">
+                    <span class="theme-icon"></span> <!-- Placeholder for icon -->
+                </button>
+            </div>
+        </div>
+
+        <div class="editor-preview-wrapper">
+            <textarea id="markdown-input" placeholder="Paste your ChatGPT output (Markdown) here..."></textarea>
+            <div id="preview-area" class="preview markdown-body"></div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; <span id="year"></span> <a href="https://siddatwork.com" target="_blank" rel="noopener noreferrer">SIDDATWORK&reg;</a></p>
+    </footer>
+
+    <script src="libs/marked.min.js"></script>
+    <script src="libs/html2canvas.min.js"></script>
+    <script src="libs/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
